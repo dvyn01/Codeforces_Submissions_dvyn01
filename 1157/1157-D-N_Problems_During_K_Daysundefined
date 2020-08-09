@@ -1,0 +1,31 @@
+n, k = map(int, input().split())
+y = pow(2, k)
+y = y - 1
+x = 0
+if(n % y == 0):
+    x = n // y
+else: x = n // y + 1
+if((x + k) * (x + k - 1) / 2 - x * (x - 1) / 2 > n):
+    print("NO")
+else:
+    a = x
+    n -= x
+    b = []
+    c = 0
+    b.insert(c, a)
+    c = c + 1
+    print("YES")
+    for i in range(1, k):
+        y = pow(2, k - i)
+        y = y - 1
+        p = 0
+        if(n % y == 0):
+            p = n // y
+        else: p = n // y + 1
+        if(p <= a):
+            p = a + 1
+        b.insert(c, p)
+        c = c + 1
+        a = p
+        n = n - p
+    print(*b)
